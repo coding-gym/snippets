@@ -39,3 +39,14 @@ for ($i = 0; $i < $n; $i++) {
     $numbers[] = $n;
 }
 ```
+
+## Writing on STDOUT
+
+When you need to write your result on *stdout* streaming.
+
+```php
+$result = 'my result';
+$stdout = fopen('php://stdout', 'w');
+fprintf($stdout, $result);
+fclose($stdout);
+```
