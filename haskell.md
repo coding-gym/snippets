@@ -99,9 +99,10 @@ The next `t` pairs of lines each represent a test case.
 We can ignore the first line (we will read to the end of file) and the lines
 with `n`. So we can just read the lines with the actual array and split by spaces.
 
-```haskell
-import Data.List.Split (chunksOf)
+We can even ignore odd lines, this is why `filter fst`, where `fst` is
+alternately `True` and `False`.
 
+```haskell
 doSomething :: [Int] -> Bool
 doSomething arr = undefined -- TO BE COMPLETED
 
