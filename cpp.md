@@ -71,3 +71,46 @@ or ignore it (there are many ways, here is the simplest):
 std::string s;
 std::cin >> s >> s;
 ```
+
+## Output
+
+We can easily print values and strings by sending them to `cout`:
+
+```cpp
+std::cout << value << " " << stringValue << "\n";
+```
+
+### Printing arrays
+
+Vectors and arrays are easy to `std::copy` to standard output.
+
+If `v` is a vector or array of `int`s, we can print its content separated by whitespaces this way:
+
+```cpp
+std::copy(begin(v), end(v), std::ostream_iterator<int>(std::cout, " "));
+```
+
+If we must omit the last whitespace, we can do the following refinement:
+
+```cpp
+std::copy(begin(v), std::prev(end(v)), std::ostream_iterator<int>(std::cout, " "));
+std::cout << *std::prev(end(v));
+```
+
+### Floating point with exact precision
+
+Some challenges require printing floting points with a certain width.
+
+In such cases, we use `std::fixed` in combination with `std::setprecision(numberOfDigits)` can be used.
+
+For instance, suppose we want only two digits after comma:
+
+```cpp
+cout << fixed << setprecision(2) << value << "\n";
+```
+
+Or suppose we want only one digit after comma:
+
+```cpp
+cout << fixed << setprecision(1) << value << "\n";
+```
