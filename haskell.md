@@ -47,6 +47,9 @@ In this example:
 doSomething :: String -> Bool
 doSomething str = undefined -- TO BE COMPLETED
 
+yesNo True = "YES"
+yesNo False = "NO"
+
 main = interact . unlines . fmap (yesNo . doSomething) . tail . lines
 ```
 
