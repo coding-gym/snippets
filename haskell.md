@@ -50,7 +50,7 @@ doSomething str = undefined -- TO BE COMPLETED
 yesNo True = "YES"
 yesNo False = "NO"
 
-main = interact . unlines . fmap (yesNo . doSomething) . tail . lines
+main = interact $ unlines . fmap (yesNo . doSomething) . tail . lines
 ```
 
 ## List of numbers
