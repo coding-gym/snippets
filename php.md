@@ -19,7 +19,7 @@ $s = trim(fgets(STDIN));
 
 ## Reading an array of integers
 
-When you need to read an array of integers, you have to read the entire string line and then convert it in array using `explode()` built-in function. For instance, if your input line is `2 10 24 3 5 25`, here is the shippet you'll need:
+When you need to read an array of integers, you have to read the entire string line and then convert it in array using `explode()` built-in function. For instance, if your input line is `2 10 24 3 5 25`, here is the snippet you'll need:
 
 ```php
 $line = trim(fgets(STDIN));
