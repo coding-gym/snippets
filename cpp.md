@@ -114,3 +114,49 @@ Or suppose we want only one digit after comma:
 ```cpp
 cout << fixed << setprecision(1) << value << "\n";
 ```
+
+### Get next day
+
+```cpp
+
+Get the next day of a date in `string` format `YYYY-MM-DD`:
+
+std::string getNextDay(const std::string& dateStr) 
+{
+    int y, m, d;
+    sscanf(dateStr.c_str(), "%d-%d-%d", &y, &m, &d);
+    
+    // Days in each month
+    int daysInMonth[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+    
+    // Check for leap year
+    const bool isLeap = (y % 4 == 0 && y % 100 != 0) || (y % 400 == 0);
+    if (isLeap) 
+        daysInMonth[1] = 29;
+    
+    // Increment day
+    d++;
+    
+    // Check if we exceeded the month
+    if (d > daysInMonth[m - 1])
+    {
+        d = 1;
+        m++;
+        
+        // Check if we exceeded the year
+        if (m > 12)
+        {
+            m = 1;
+            y++;
+        }
+    }
+    
+    // Format back to string
+    std::ostringstream oss;
+    oss << std::setfill('0') << std::setw(4) << y << "-"
+        << std::setw(2) << m << "-"
+        << std::setw(2) << d;
+    
+    return oss.str();
+}
+```
